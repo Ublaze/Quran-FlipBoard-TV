@@ -1,0 +1,8 @@
+dist/
+dist-src/
+node_modules/
+*.ipk
+
+# LG UX-scenario template (LG document, not ours to redistribute)
+ux_scenario_document_4.4.ppt
+test-output/

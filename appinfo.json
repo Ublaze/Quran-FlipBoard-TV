@@ -1,0 +1,21 @@
+{
+  "id": "com.ublaze.quranflipboard",
+  "title": "Quran FlipBoard",
+  "type": "web",
+  "main": "index.html",
+  "icon": "assets/icon512.png",
+  "largeIcon": "assets/icon512.png",
+  "splashBackground": "assets/splashBackground.png",
+  "version": "0.2.0",
+  "vendor": "Ublaze",
+  "appDescription": "Beautiful split-flap display of Quran verses",
+  "iconColor": "#1A1A1A",
+  "resolution": "1920x1080",
+  "transparent": false,
+  "disableBackHistoryAPI": false,
+  "handlesRelaunch": false,
+  "screenSaverProperties": {
+    "preferredType": 3
+  },
+  "useGalleryMode": true
+}

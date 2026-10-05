@@ -1,0 +1,68 @@
+.tile {
+  position: relative;
+  width: var(--tile-size, 52px);
+  height: var(--tile-size, 52px);
+  background: #222;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Horizontal split line (mechanical flap seam) */
+.tile::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.tile-char {
+  font-size: calc(var(--tile-size, 52px) * 0.52);
+  font-weight: 700;
+  color: #F0F0F0;
+  line-height: 1;
+  letter-spacing: 0;
+  transition: color 0.1s ease;
+  z-index: 1;
+}
+
+/* Scramble state — colored background */
+.tile.scrambling {
+  transition: background-color 0.07s ease;
+}
+
+.tile.scrambling .tile-char {
+  color: #F0F0F0;
+}
+
+/* Dark text on light scramble backgrounds */
+.tile.scrambling.light-bg .tile-char {
+  color: #111;
+}
+
+/* Settle animation — subtle 3D tilt */
+.tile.settling {
+  animation: tileSettle 0.3s ease-out forwards;
+}
+
+@keyframes tileSettle {
+  0%   { transform: perspective(200px) rotateX(-8deg); }
+  100% { transform: perspective(200px) rotateX(0deg); }
+}
+
+/* Idle glow for active tiles */
+.tile.active {
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 8px rgba(200, 169, 97, 0.08);
+}

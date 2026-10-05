@@ -1,0 +1,116 @@
+/* Show modes (set on <body data-show="...">) */
+body[data-show="arabic"] #board-section { display: none; }
+body[data-show="english"] #arabic-section { display: none; }
+
+/* OLED care: the whole layout drifts a few pixels over ~12 minutes
+   so the board frame and reference line never sit on exactly the same pixels for hours. */
+#app {
+  animation: burnInDrift 720s ease-in-out infinite;
+}
+
+@keyframes burnInDrift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(10px, -6px); }
+  50%  { transform: translate(-8px, 8px); }
+  75%  { transform: translate(6px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Magic Remote cursor: hidden while idle, visible while the pointer moves */
+body.pointer-active,
+body.pointer-active * {
+  cursor: default;
+}
+
+/* Control bar */
+#control-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 48px;
+  transform: translate(-50%, 24px);
+  display: flex;
+  padding: 14px 10px;
+  background: rgba(20, 20, 20, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(200, 169, 97, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 50;
+}
+
+#control-bar.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: all;
+}
+
+.cb-btn {
+  width: 120px;
+  height: 100px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px; /* flex gap needs Chromium 84; webOS 5 is 68 */
+  color: #E0E0E0;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.cb-btn.focused {
+  border-color: #C8A961;
+  background: rgba(200, 169, 97, 0.14);
+  color: #F0E6D0;
+  transform: scale(1.06);
+}
+
+.cb-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: currentColor;
+  display: block;
+}
+
+.cb-label {
+  margin-top: 8px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Paused badge */
+#pause-badge {
+  position: fixed;
+  top: 40px;
+  right: 56px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 20px;
+  color: #F0E6D0;
+  background: rgba(200, 169, 97, 0.16);
+  border: 1px solid rgba(200, 169, 97, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#pause-badge.visible { opacity: 1; }
+
+/* Hidden keep-alive video (fallback screensaver prevention). Must stay "rendered" to keep playing. */
+#keepalive-video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  pointer-events: none;
+}
+
+/* 720p */
+@media (max-width: 1599px) {
+  #control-bar { bottom: 28px; padding: 10px 7px; }
+  .cb-btn { width: 96px; height: 84px; margin: 0 5px; }
+  .cb-icon svg { width: 32px; height: 32px; }
+}

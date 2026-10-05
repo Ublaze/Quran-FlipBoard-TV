@@ -1,0 +1,81 @@
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 40px 60px;
+}
+
+#arabic-section {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  text-align: center;
+  padding: 20px 40px 30px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#board-section {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#reference-section {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  text-align: center;
+  padding: 24px 0 0;
+}
+
+#surah-ref {
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C8A961;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#surah-ref.visible {
+  opacity: 1;
+}
+
+#nav-hint {
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#nav-hint.visible {
+  opacity: 1;
+}
+
+.hint-key {
+  color: #C8A961;
+  font-weight: 600;
+}
+
+.hint-sep {
+  margin: 0 12px;
+  opacity: 0.3;
+}

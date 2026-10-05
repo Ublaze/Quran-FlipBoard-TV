@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, initial-scale=1.0">
+  <title>Quran FlipBoard</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/board.css">
+  <link rel="stylesheet" href="css/tile.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/arabic.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/controls.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Arabic verse display (calligraphic, non-flip) -->
+    <div id="arabic-section">
+      <div id="arabic-verse" dir="rtl" lang="ar"></div>
+    </div>
+
+    <!-- Split-flap board for English translation -->
+    <div id="board-section">
+      <div id="board">
+        <div id="accent-tl" class="accent-bar"></div>
+        <div id="accent-tr" class="accent-bar"></div>
+        <div id="accent-bl" class="accent-bar"></div>
+        <div id="accent-br" class="accent-bar"></div>
+        <div id="tile-grid"></div>
+      </div>
+    </div>
+
+    <!-- Surah reference line -->
+    <div id="reference-section">
+      <span id="surah-ref"></span>
+    </div>
+
+    <!-- Launch hint (shown once per launch, then fades) -->
+    <div id="nav-hint">
+      Press <span class="hint-key">OK</span> for controls
+      <span class="hint-sep">&middot;</span>
+      <span class="hint-key">&#x25C0; &#x25B6;</span> previous / next
+    </div>
+
+    <!-- Paused indicator -->
+    <div id="pause-badge">Paused &middot; press OK or Play to continue</div>
+
+    <!-- Auto-hiding controls -->
+    <div id="control-bar"></div>
+  </div>
+
+  <!-- Settings overlay -->
+  <div id="settings-overlay">
+    <div id="settings-panel"></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

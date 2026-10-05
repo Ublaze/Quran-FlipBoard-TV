@@ -1,0 +1,97 @@
+/* Settings overlay */
+#settings-overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0; /* not inset: Chromium 68 */
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+#settings-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#settings-panel {
+  background: #1A1A1A;
+  border-radius: 16px;
+  padding: 48px 56px;
+  min-width: 640px;
+  max-width: 760px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(200, 169, 97, 0.15);
+}
+
+#settings-panel h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #C8A961;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  padding: 16px 24px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.setting-row.focused {
+  border-color: #C8A961;
+  background: rgba(200, 169, 97, 0.08);
+}
+
+.setting-label {
+  font-size: 24px;
+  font-weight: 400;
+  color: #E0E0E0;
+}
+
+.setting-value {
+  font-size: 22px;
+  font-weight: 500;
+  color: #C8A961;
+  display: flex;
+  align-items: center;
+}
+
+.setting-arrow {
+  color: rgba(200, 169, 97, 0.4);
+  font-size: 20px;
+  transition: color 0.2s ease;
+}
+
+.setting-value .val-text { margin: 0 14px; }
+
+.setting-row.focused .setting-arrow {
+  color: #C8A961;
+}
+
+#settings-hint {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+#settings-about {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.35);
+}

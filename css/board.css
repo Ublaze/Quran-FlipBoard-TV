@@ -1,0 +1,44 @@
+#board {
+  position: relative;
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+#tile-grid {
+  display: grid;
+  gap: 4px;
+  justify-content: center;
+}
+
+/* Accent corner bars */
+.accent-bar {
+  position: absolute;
+  width: 8px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease;
+}
+
+.accent-bar::before,
+.accent-bar::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  transition: background-color 0.4s ease;
+}
+
+.accent-bar::after { margin-top: 3px; } /* flex gap needs Chromium 84 */
+
+#accent-tl { top: 12px; left: 12px; }
+#accent-tr { top: 12px; right: 12px; }
+#accent-bl { bottom: 12px; left: 12px; }
+#accent-br { bottom: 12px; right: 12px; }
+
+/* Default accent colors — gold theme */
+.accent-bar::before { background-color: var(--accent-before, #C8A961); }
+.accent-bar::after  { background-color: var(--accent-after, #2D6A4F); }

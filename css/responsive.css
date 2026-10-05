@@ -1,0 +1,41 @@
+/*
+ * Tile size is calculated dynamically by Board.js based on viewport.
+ * These breakpoints handle typography, padding, and layout only.
+ */
+
+/* 4K UHD (3840x2160) */
+@media (min-width: 2500px) {
+  #app { padding: 80px 120px; }
+  #arabic-verse { font-size: calc(72px * var(--arabic-scale, 1)); }
+  #surah-ref { font-size: 32px; }
+  #board { padding: 40px 48px; }
+  #tile-grid { gap: 6px; }
+}
+
+/* Full HD (1920x1080) — default */
+@media (min-width: 1200px) and (max-width: 2499px) {
+  #app { padding: 40px 60px; }
+  #arabic-verse { font-size: calc(48px * var(--arabic-scale, 1)); }
+}
+
+/* Laptop (1280–1919px) */
+@media (min-width: 900px) and (max-width: 1199px) {
+  #app { padding: 24px 40px; }
+  #arabic-section { padding: 12px 20px 16px; min-height: 80px; }
+  #arabic-verse { font-size: calc(36px * var(--arabic-scale, 1)); }
+  #surah-ref { font-size: 18px; }
+  #board { padding: 20px 24px; border-radius: 10px; }
+  #tile-grid { gap: 3px; }
+  #nav-hint { font-size: 14px; bottom: 16px; }
+}
+
+/* HD Ready / Tablet (720p) */
+@media (max-width: 899px) {
+  #app { padding: 16px 24px; }
+  #arabic-section { padding: 8px 12px 12px; min-height: 60px; }
+  #arabic-verse { font-size: calc(28px * var(--arabic-scale, 1)); line-height: 1.6; }
+  #surah-ref { font-size: 14px; letter-spacing: 2px; }
+  #board { padding: 14px 16px; border-radius: 8px; }
+  #tile-grid { gap: 2px; }
+  #nav-hint { font-size: 12px; bottom: 10px; }
+}

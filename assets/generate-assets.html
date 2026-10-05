@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quran FlipBoard TV - Asset Generator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2rem;
+    color: #C8A961;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .asset-section {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: border-color 0.3s;
+  }
+
+  .asset-section:hover {
+    border-color: #2a2520;
+  }
+
+  .asset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .asset-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #C8A961;
+    letter-spacing: 1px;
+  }
+
+  .asset-dim {
+    font-size: 0.75rem;
+    color: #555;
+    font-weight: 300;
+  }
+
+  .canvas-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #080808;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: auto;
+  }
+
+  .canvas-wrap canvas {
+    border: 1px solid #1a1a1a;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  button {
+    font-family: 'Inter', sans-serif;
+    padding: 10px 24px;
+    border: 1px solid #C8A961;
+    background: transparent;
+    color: #C8A961;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.25s;
+  }
+
+  button:hover {
+    background: #C8A961;
+    color: #0a0a0a;
+  }
+
+  .download-all-wrap {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+
+  .download-all-wrap button {
+    padding: 14px 48px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-width: 2px;
+  }
+
+  .footer {
+    text-align: center;
+    color: #333;
+    font-size: 0.7rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Quran FlipBoard</h1>
+  <p class="subtitle">LG webOS App - Asset Generator</p>
+
+  <div class="download-all-wrap">
+    <button onclick="downloadAll()">Download All Assets</button>
+  </div>
+
+  <div class="asset-section">
+    <div class="asset-header">
+      <span class="asset-title">icon.png</span>
+      <span class="asset-dim">80 x 80 px - App Icon</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="iconCanvas" width="80" height="80"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="downloadCanvas('iconCanvas','icon.png')">Download</button>
+    </div>
+  </div>
+
+  <div class="asset-section">
+    <div class="asset-header">
+      <span class="asset-title">largeIcon.png</span>
+      <span class="asset-dim">130 x 130 px - Hover Icon</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="largeIconCanvas" width="130" height="130"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="downloadCanvas('largeIconCanvas','largeIcon.png')">Download</button>
+    </div>
+  </div>
+
+  <div class="asset-section">
+    <div class="asset-header">
+      <span class="asset-title">storeIcon.png</span>
+      <span class="asset-dim">400 x 400 px - Content Store Icon</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="storeIconCanvas" width="400" height="400"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="downloadCanvas('storeIconCanvas','storeIcon.png')">Download</button>
+    </div>
+  </div>
+
+  <div class="asset-section">
+    <div class="asset-header">
+      <span class="asset-title">thumbnail.png</span>
+      <span class="asset-dim">400 x 226 px - Store Thumbnail (16:9)</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="thumbnailCanvas" width="400" height="226"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="downloadCanvas('thumbnailCanvas','thumbnail.png')">Download</button>
+    </div>
+  </div>
+
+  <div class="asset-section">
+    <div class="asset-header">
+      <span class="asset-title">splashBackground.png</span>
+      <span class="asset-dim">1920 x 1080 px - Loading Screen</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="splashCanvas" width="1920" height="1080"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="downloadCanvas('splashCanvas','splashBackground.png')">Download</button>
+    </div>
+  </div>
+
+  <p class="footer">Quran FlipBoard TV - Asset Generator</p>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// Color palette
+// ─────────────────────────────────────────────
+const DARK   = '#0D0D0D';
+const DARK2  = '#1A1A1A';
+const GOLD   = '#C8A961';
+const GOLD2  = '#A08040';
+const EMERALD = '#2D6A4F';
+
+// ─────────────────────────────────────────────
+// Draw an 8-point star (two overlapping squares rotated 45 deg)
+// ─────────────────────────────────────────────
+function draw8PointStar(ctx, cx, cy, outerR, innerR, opts = {}) {
+  const { fill = GOLD, stroke = null, lineWidth = 1, rotation = 0 } = opts;
+  const points = 8;
+  const step = Math.PI / points;
+
+  ctx.beginPath();
+  for (let i = 0; i < points * 2; i++) {
+    const r = i % 2 === 0 ? outerR : innerR;
+    const angle = i * step - Math.PI / 2 + rotation;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+
+  if (fill) {
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if (stroke) {
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+  }
+}
+
+// ─────────────────────────────────────────────
+// Draw geometric octagonal border pattern
+// ─────────────────────────────────────────────
+function drawGeoBorder(ctx, cx, cy, radius, segments, opts = {}) {
+  const { stroke = GOLD, lineWidth = 1, alpha = 1 } = opts;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = lineWidth;
+
+  // Outer octagon
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI / 4) - Math.PI / 8;
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.stroke();
+
+  // Inner octagon
+  const innerR = radius * 0.88;
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI / 4) - Math.PI / 8;
+    const x = cx + innerR * Math.cos(angle);
+    const y = cy + innerR * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.stroke();
+
+  // Connecting lines between octagons
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI / 4) - Math.PI / 8;
+    const midAngle = angle + Math.PI / 8;
+    ctx.beginPath();
+    ctx.moveTo(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+    ctx.lineTo(cx + innerR * Math.cos(midAngle), cy + innerR * Math.sin(midAngle));
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+    ctx.lineTo(cx + innerR * Math.cos(angle - Math.PI / 8 + Math.PI / 4), cy + innerR * Math.sin(angle - Math.PI / 8 + Math.PI / 4));
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+// Draw repeating Islamic tile pattern (for splash bg)
+// ─────────────────────────────────────────────
+function drawTilePattern(ctx, w, h, tileSize, opts = {}) {
+  const { stroke = GOLD, lineWidth = 0.5, alpha = 0.06 } = opts;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = lineWidth;
+
+  const cols = Math.ceil(w / tileSize) + 1;
+  const rows = Math.ceil(h / tileSize) + 1;
+
+  for (let row = -1; row < rows; row++) {
+    for (let col = -1; col < cols; col++) {
+      const cx = col * tileSize + tileSize / 2;
+      const cy = row * tileSize + tileSize / 2;
+      const r = tileSize * 0.42;
+      const ir = r * 0.55;
+
+      // 8-point star outline
+      draw8PointStar(ctx, cx, cy, r, ir, {
+        fill: null,
+        stroke: stroke,
+        lineWidth: lineWidth
+      });
+
+      // Small diamond connectors between tiles
+      const dr = tileSize * 0.12;
+      const offsets = [
+        [tileSize / 2, 0],
+        [-tileSize / 2, 0],
+        [0, tileSize / 2],
+        [0, -tileSize / 2]
+      ];
+      for (const [dx, dy] of offsets) {
+        ctx.beginPath();
+        ctx.moveTo(cx + dx, cy + dy - dr);
+        ctx.lineTo(cx + dx + dr, cy + dy);
+        ctx.lineTo(cx + dx, cy + dy + dr);
+        ctx.lineTo(cx + dx - dr, cy + dy);
+        ctx.closePath();
+        ctx.stroke();
+      }
+    }
+  }
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+// Draw gold ornament line (thin line with diamond center)
+// ─────────────────────────────────────────────
+function drawOrnamentLine(ctx, cx, cy, halfWidth, opts = {}) {
+  const { color = GOLD, lineWidth = 1.5, diamondSize = 6 } = opts;
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.lineWidth = lineWidth;
+
+  // Left line
+  ctx.beginPath();
+  ctx.moveTo(cx - halfWidth, cy);
+  ctx.lineTo(cx - diamondSize * 1.5, cy);
+  ctx.stroke();
+
+  // Right line
+  ctx.beginPath();
+  ctx.moveTo(cx + diamondSize * 1.5, cy);
+  ctx.lineTo(cx + halfWidth, cy);
+  ctx.stroke();
+
+  // Center diamond
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - diamondSize);
+  ctx.lineTo(cx + diamondSize * 1.3, cy);
+  ctx.lineTo(cx, cy + diamondSize);
+  ctx.lineTo(cx - diamondSize * 1.3, cy);
+  ctx.closePath();
+  ctx.fill();
+
+  // Small dots at the ends
+  for (const sx of [-1, 1]) {
+    ctx.beginPath();
+    ctx.arc(cx + sx * halfWidth, cy, lineWidth * 1.2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+// 1. ICON (80x80)
+// ─────────────────────────────────────────────
+function renderIcon() {
+  const c = document.getElementById('iconCanvas');
+  const ctx = c.getContext('2d');
+  const w = 80, h = 80;
+
+  // Background with subtle radial gradient
+  const bg = ctx.createRadialGradient(w/2, w/2, 0, w/2, w/2, w * 0.7);
+  bg.addColorStop(0, '#151515');
+  bg.addColorStop(1, DARK);
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // Subtle emerald glow behind the star
+  const glow = ctx.createRadialGradient(w/2, w/2, 0, w/2, w/2, 28);
+  glow.addColorStop(0, 'rgba(45,106,79,0.15)');
+  glow.addColorStop(1, 'rgba(45,106,79,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, w, h);
+
+  // Gold star
+  const outerR = 28;
+  const innerR = outerR * 0.48;
+
+  // Star glow
+  ctx.save();
+  ctx.shadowColor = 'rgba(200,169,97,0.4)';
+  ctx.shadowBlur = 10;
+  draw8PointStar(ctx, w/2, h/2, outerR, innerR, { fill: GOLD });
+  ctx.restore();
+
+  // Inner detail: small dark star cutout (creates depth)
+  draw8PointStar(ctx, w/2, h/2, outerR * 0.35, outerR * 0.18, {
+    fill: '#1a1508',
+    stroke: GOLD2,
+    lineWidth: 0.5
+  });
+
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = GOLD;
+  ctx.fill();
+
+  // Thin border circle
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, 36, 0, Math.PI * 2);
+  ctx.strokeStyle = GOLD;
+  ctx.globalAlpha = 0.2;
+  ctx.lineWidth = 0.8;
+  ctx.stroke();
+  ctx.globalAlpha = 1;
+}
+
+// ─────────────────────────────────────────────
+// 2. LARGE ICON (130x130)
+// ─────────────────────────────────────────────
+function renderLargeIcon() {
+  const c = document.getElementById('largeIconCanvas');
+  const ctx = c.getContext('2d');
+  const w = 130, h = 130;
+
+  // Background
+  const bg = ctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, w * 0.7);
+  bg.addColorStop(0, '#161616');
+  bg.addColorStop(1, DARK);
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // Emerald glow
+  const glow = ctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, 45);
+  glow.addColorStop(0, 'rgba(45,106,79,0.12)');
+  glow.addColorStop(1, 'rgba(45,106,79,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, w, h);
+
+  // Geometric border
+  drawGeoBorder(ctx, w/2, h/2, 56, 8, { stroke: GOLD, lineWidth: 0.7, alpha: 0.35 });
+
+  // Gold star
+  const outerR = 40;
+  const innerR = outerR * 0.48;
+
+  ctx.save();
+  ctx.shadowColor = 'rgba(200,169,97,0.35)';
+  ctx.shadowBlur = 14;
+  draw8PointStar(ctx, w/2, h/2, outerR, innerR, { fill: GOLD });
+  ctx.restore();
+
+  // Inner ring
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, outerR * 0.42, 0, Math.PI * 2);
+  ctx.strokeStyle = '#1a1508';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Dark inner star
+  draw8PointStar(ctx, w/2, h/2, outerR * 0.35, outerR * 0.18, {
+    fill: '#1a1508',
+    stroke: GOLD2,
+    lineWidth: 0.6
+  });
+
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(w/2, h/2, 3, 0, Math.PI * 2);
+  ctx.fillStyle = GOLD;
+  ctx.fill();
+
+  // Corner accent dots
+  const cornerInset = 12;
+  for (const [x, y] of [[cornerInset, cornerInset], [w - cornerInset, cornerInset], [cornerInset, h - cornerInset], [w - cornerInset, h - cornerInset]]) {
+    ctx.beginPath();
+    ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+    ctx.fillStyle = GOLD;
+    ctx.globalAlpha = 0.3;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  // Thin outer rounded rect border
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.strokeStyle = GOLD;
+  ctx.lineWidth = 1;
+  const br = 8;
+  ctx.beginPath();
+  ctx.roundRect(4, 4, w - 8, h - 8, br);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+// 3. SPLASH SCREEN (1920x1080)
+// ─────────────────────────────────────────────
+function renderSplash() {
+  const c = document.getElementById('splashCanvas');
+  const ctx = c.getContext('2d');
+  const w = 1920, h = 1080;
+
+  // Background
+  ctx.fillStyle = DARK;
+  ctx.fillRect(0, 0, w, h);
+
+  // Subtle vignette
+  const vig = ctx.createRadialGradient(w/2, h/2, h * 0.2, w/2, h/2, w * 0.75);
+  vig.addColorStop(0, 'rgba(26,26,26,0)');
+  vig.addColorStop(1, 'rgba(0,0,0,0.5)');
+  ctx.fillStyle = vig;
+  ctx.fillRect(0, 0, w, h);
+
+  // Tile pattern background
+  drawTilePattern(ctx, w, h, 100, { stroke: GOLD, lineWidth: 0.6, alpha: 0.045 });
+
+  // Secondary emerald tile layer (offset)
+  ctx.save();
+  ctx.translate(50, 50);
+  drawTilePattern(ctx, w, h, 100, { stroke: EMERALD, lineWidth: 0.4, alpha: 0.03 });
+  ctx.restore();
+
+  // Central glow
+  const centralGlow = ctx.createRadialGradient(w/2, h/2 - 40, 0, w/2, h/2 - 40, 300);
+  centralGlow.addColorStop(0, 'rgba(45,106,79,0.08)');
+  centralGlow.addColorStop(0.5, 'rgba(200,169,97,0.03)');
+  centralGlow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = centralGlow;
+  ctx.fillRect(0, 0, w, h);
+
+  const centerX = w / 2;
+  const starCenterY = h / 2 - 80;
+
+  // Outer decorative ring
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.strokeStyle = GOLD;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(centerX, starCenterY, 175, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+
+  // Geometric border around star
+  drawGeoBorder(ctx, centerX, starCenterY, 155, 8, { stroke: GOLD, lineWidth: 1, alpha: 0.2 });
+
+  // Small 8-point stars around the main star
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI / 4) - Math.PI / 2;
+    const dist = 195;
+    const sx = centerX + dist * Math.cos(angle);
+    const sy = starCenterY + dist * Math.sin(angle);
+    ctx.save();
+    ctx.globalAlpha = 0.25;
+    draw8PointStar(ctx, sx, sy, 10, 5, { fill: null, stroke: GOLD, lineWidth: 0.8 });
+    ctx.restore();
+  }
+
+  // Main star - outer glow
+  ctx.save();
+  ctx.shadowColor = 'rgba(200,169,97,0.3)';
+  ctx.shadowBlur = 40;
+
+  // Gold-to-deeper-gold gradient fill for main star
+  const starOuter = 120;
+  const starInner = starOuter * 0.48;
+  const starGrad = ctx.createRadialGradient(centerX, starCenterY, 0, centerX, starCenterY, starOuter);
+  starGrad.addColorStop(0, '#d4b76a');
+  starGrad.addColorStop(1, GOLD2);
+
+  draw8PointStar(ctx, centerX, starCenterY, starOuter, starInner, { fill: starGrad });
+  ctx.restore();
+
+  // Inner decorative ring
+  ctx.beginPath();
+  ctx.arc(centerX, starCenterY, starOuter * 0.43, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(26,21,8,0.8)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Inner cutout star
+  draw8PointStar(ctx, centerX, starCenterY, starOuter * 0.38, starOuter * 0.2, {
+    fill: '#1a1508',
+    stroke: GOLD2,
+    lineWidth: 1
+  });
+
+  // Innermost small gold star
+  draw8PointStar(ctx, centerX, starCenterY, starOuter * 0.15, starOuter * 0.08, {
+    fill: GOLD
+  });
+
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(centerX, starCenterY, 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#1a1508';
+  ctx.fill();
+
+  // ── Text area ──
+  const textY = starCenterY + 180;
+
+  // Ornament line above text
+  drawOrnamentLine(ctx, centerX, textY - 30, 200, { color: GOLD, lineWidth: 1.2, diamondSize: 7 });
+
+  // App name
+  ctx.save();
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // "Quran" - larger
+  ctx.font = '600 52px Cinzel, Georgia, serif';
+  ctx.fillStyle = GOLD;
+  ctx.shadowColor = 'rgba(200,169,97,0.2)';
+  ctx.shadowBlur = 20;
+  ctx.fillText('Quran FlipBoard', centerX, textY + 10);
+  ctx.restore();
+
+  // Tagline
+  ctx.save();
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = '300 18px Inter, Helvetica, sans-serif';
+  ctx.fillStyle = '#666';
+  ctx.letterSpacing = '4px';
+  ctx.fillText('for LG webOS', centerX, textY + 52);
+  ctx.restore();
+
+  // Ornament line below text
+  drawOrnamentLine(ctx, centerX, textY + 85, 200, { color: GOLD, lineWidth: 1.2, diamondSize: 7 });
+
+  // Emerald accent bar at very bottom
+  ctx.save();
+  ctx.globalAlpha = 0.4;
+  const barGrad = ctx.createLinearGradient(0, h - 3, w, h - 3);
+  barGrad.addColorStop(0, 'transparent');
+  barGrad.addColorStop(0.3, EMERALD);
+  barGrad.addColorStop(0.5, GOLD);
+  barGrad.addColorStop(0.7, EMERALD);
+  barGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = barGrad;
+  ctx.fillRect(0, h - 2, w, 2);
+  ctx.restore();
+}
+
+// ─────────────────────────────────────────────
+// Download helpers
+// ─────────────────────────────────────────────
+function downloadCanvas(canvasId, filename) {
+  const canvas = document.getElementById(canvasId);
+  canvas.toBlob(function(blob) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 'image/png');
+}
+
+function downloadAll() {
+  downloadCanvas('iconCanvas', 'icon.png');
+  setTimeout(() => downloadCanvas('largeIconCanvas', 'largeIcon.png'), 300);
+  setTimeout(() => downloadCanvas('storeIconCanvas', 'storeIcon.png'), 600);
+  setTimeout(() => downloadCanvas('thumbnailCanvas', 'thumbnail.png'), 900);
+  setTimeout(() => downloadCanvas('splashCanvas', 'splashBackground.png'), 1200);
+}
+
+// ─────────────────────────────────────────────
+// Store Icon (400x400) — larger version with text
+// ─────────────────────────────────────────────
+function renderStoreIcon() {
+  const canvas = document.getElementById('storeIconCanvas');
+  const ctx = canvas.getContext('2d');
+  const s = 400;
+
+  // Background
+  ctx.fillStyle = DARK;
+  ctx.fillRect(0, 0, s, s);
+
+  // Subtle radial glow
+  const glow = ctx.createRadialGradient(s/2, s/2 - 30, 0, s/2, s/2 - 30, s * 0.6);
+  glow.addColorStop(0, 'rgba(200,169,97,0.08)');
+  glow.addColorStop(1, 'transparent');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, s, s);
+
+  // Star
+  draw8PointStar(ctx, s/2, s/2 - 30, 100, 50, { fill: GOLD });
+  draw8PointStar(ctx, s/2, s/2 - 30, 55, 28, { fill: DARK });
+  draw8PointStar(ctx, s/2, s/2 - 30, 35, 18, { fill: GOLD2 });
+
+  // Geometric ring
+  ctx.beginPath();
+  ctx.arc(s/2, s/2 - 30, 120, 0, Math.PI * 2);
+  ctx.strokeStyle = GOLD;
+  ctx.globalAlpha = 0.2;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  // Text
+  ctx.textAlign = 'center';
+  ctx.fillStyle = GOLD;
+  ctx.font = '600 22px Cinzel, serif';
+  ctx.fillText('QURAN', s/2, s/2 + 110);
+  ctx.font = '300 14px Inter, sans-serif';
+  ctx.fillStyle = '#888';
+  ctx.fillText('FLIPBOARD', s/2, s/2 + 134);
+
+  // Corner accents
+  const d = 8;
+  ctx.fillStyle = GOLD;
+  ctx.globalAlpha = 0.3;
+  ctx.fillRect(12, 12, d, d);
+  ctx.fillRect(s - 12 - d, 12, d, d);
+  ctx.fillRect(12, s - 12 - d, d, d);
+  ctx.fillRect(s - 12 - d, s - 12 - d, d, d);
+  ctx.globalAlpha = 1;
+}
+
+// ─────────────────────────────────────────────
+// Thumbnail (400x226) — 16:9 card for store
+// ─────────────────────────────────────────────
+function renderThumbnail() {
+  const canvas = document.getElementById('thumbnailCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = 400, h = 226;
+
+  // Background
+  ctx.fillStyle = DARK2;
+  ctx.fillRect(0, 0, w, h);
+
+  // Subtle geometric pattern
+  ctx.globalAlpha = 0.04;
+  for (let y = -20; y < h + 20; y += 40) {
+    for (let x = -20; x < w + 20; x += 40) {
+      draw8PointStar(ctx, x, y, 12, 6, { fill: GOLD });
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  // Star (left side)
+  draw8PointStar(ctx, 90, h/2, 42, 21, { fill: GOLD });
+  draw8PointStar(ctx, 90, h/2, 23, 12, { fill: DARK2 });
+
+  // Text (right side)
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#F0E6D0';
+  ctx.font = '600 26px Cinzel, serif';
+  ctx.fillText('Quran', 160, h/2 - 12);
+  ctx.font = '600 26px Cinzel, serif';
+  ctx.fillText('FlipBoard', 160, h/2 + 22);
+  ctx.font = '300 11px Inter, sans-serif';
+  ctx.fillStyle = GOLD;
+  ctx.fillText('SPLIT-FLAP VERSE DISPLAY', 162, h/2 + 48);
+
+  // Gold accent line
+  ctx.fillStyle = GOLD;
+  ctx.globalAlpha = 0.4;
+  ctx.fillRect(160, h/2 - 26, 180, 1);
+  ctx.globalAlpha = 1;
+
+  // Bottom emerald bar
+  ctx.globalAlpha = 0.3;
+  const barGrad = ctx.createLinearGradient(0, h - 2, w, h - 2);
+  barGrad.addColorStop(0, 'transparent');
+  barGrad.addColorStop(0.3, EMERALD);
+  barGrad.addColorStop(0.5, GOLD);
+  barGrad.addColorStop(0.7, EMERALD);
+  barGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = barGrad;
+  ctx.fillRect(0, h - 2, w, 2);
+  ctx.globalAlpha = 1;
+}
+
+// ─────────────────────────────────────────────
+// Render all on load
+// ─────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  renderIcon();
+  renderLargeIcon();
+  renderStoreIcon();
+  renderThumbnail();
+  renderSplash();
+});
+</script>
+</body>
+</html>
