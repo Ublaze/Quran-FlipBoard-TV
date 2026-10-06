@@ -15,12 +15,12 @@ registration screen shows them. Click **SAVE** after each menu (its checkbox tur
 | Field | Value |
 |-------|-------|
 | App ID | `com.ublaze.quranflipboardtv` (taken from the IPK) |
-| IPK | `dist/com.ublaze.quranflipboardtv_0.2.1_all.ipk` (agree to "configure from IPK") |
+| IPK | `dist/com.ublaze.quranflipboardtv_1.0.0_all.ipk` (agree to "configure from IPK") |
 | File Type | Web (auto) |
 | Chipset | Web → **All** |
 | Service Platform / SDK | All webOS platforms offered (app targets webOS 5+ / Chromium 68 and up) |
 | Resolution | Graphics 1920 x 1080 FHD (from appinfo.json) |
-| File Version | `0.2.1` |
+| File Version | `1.0.0` |
 
 ## 2. Images
 
@@ -62,7 +62,7 @@ registration screen shows them. Click **SAVE** after each menu (its checkbox tur
 | Field | Value |
 |-------|-------|
 | Category | **Life** (alternative: Education) |
-| App Version | `0.2.1` |
+| App Version | `1.0.0` |
 | App Rating | **All ages** (if Brazil is selected, use LG's Assessment of Content Rating) |
 | Content Rating (adult content) | **No adult content** |
 | Tag Keywords | `quran islamic verses ayah surah arabic muslim ambient screensaver flipboard` |
@@ -83,7 +83,7 @@ registration screen shows them. Click **SAVE** after each menu (its checkbox tur
 | Field | Value |
 |-------|-------|
 | Reference E-mail | (your verified seller email is used automatically) |
-| UX Scenario File | `docs/lg-templates/UX_Scenario_QuranFlipBoard_0.2.1.pptx` (filled from LG template 4.4) |
+| UX Scenario File | `docs/lg-templates/UX_Scenario_QuranFlipBoard_1.0.0.pptx` (filled from LG template 4.4) |
 | Note for Tester | see below |
 | Test Account / Voucher | **Not applicable** |
 | Test IPK / URL | **Not applicable** |
@@ -100,7 +100,7 @@ registration screen shows them. Click **SAVE** after each menu (its checkbox tur
 
 ## 8. Self-check list
 
-Fill online from `docs/lg-templates/Self_Checklist_QuranFlipBoard_0.2.1.xlsx` (every row is Pass or NA with a comment).
+Fill online from `docs/lg-templates/Self_Checklist_QuranFlipBoard_1.0.0.xlsx` (every row is Pass or NA with a comment).
 Note: the list resets whenever the app version changes.
 
 ## 9. Defect Info.

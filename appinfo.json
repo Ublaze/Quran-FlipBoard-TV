@@ -6,7 +6,7 @@
   "icon": "assets/icon.png",
   "largeIcon": "assets/largeIcon.png",
   "splashBackground": "assets/splashBackground.png",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "vendor": "Ublaze",
   "appDescription": "Beautiful split-flap display of Quran verses",
   "iconColor": "#0D0D0D",

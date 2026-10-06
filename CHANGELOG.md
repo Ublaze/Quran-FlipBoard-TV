@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0] - 2026-10-06
+
+First LG Content Store release (LG requires a file version of at least 1.0.0). Same app as 0.2.1, plus:
+
+### Fixed
+- `appinfo.json` now points `icon` at an 80x80 PNG and `largeIcon` at a 130x130 PNG, as webOS requires (both were the 512x512 image).
+
 ## [0.2.1] - 2026-10-06
 
 LG Content Store submission readiness.

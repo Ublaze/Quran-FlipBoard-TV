@@ -9,7 +9,7 @@ A few things are controlled by the TV, not the app. This page covers them.
 ```bash
 node build.js
 ares-package dist-src -o dist
-ares-install --device <your-tv> dist/com.ublaze.quranflipboardtv_0.2.1_all.ipk
+ares-install --device <your-tv> dist/com.ublaze.quranflipboardtv_1.0.0_all.ipk
 ares-launch --device <your-tv> com.ublaze.quranflipboardtv
 ```
 
