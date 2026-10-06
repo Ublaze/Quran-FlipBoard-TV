@@ -78,12 +78,12 @@ It starts playing as soon as it opens. There's nothing to set up, no account, an
 ### Option 1: Install the release on your TV (Developer Mode)
 
 1. Turn on [Developer Mode](https://webostv.developer.lge.com/develop/getting-started/developer-mode-app) on the TV and register it with the webOS CLI (`ares-setup-device`).
-2. Download `com.ublaze.quranflipboard_<version>_all.ipk` from [Releases](https://github.com/Ublaze/Quran-FlipBoard-TV/releases).
+2. Download `com.ublaze.quranflipboardtv_<version>_all.ipk` from [Releases](https://github.com/Ublaze/Quran-FlipBoard-TV/releases).
 3. Install and launch it:
 
 ```bash
-ares-install --device <your-tv> com.ublaze.quranflipboard_0.2.1_all.ipk
-ares-launch  --device <your-tv> com.ublaze.quranflipboard
+ares-install --device <your-tv> com.ublaze.quranflipboardtv_0.2.1_all.ipk
+ares-launch  --device <your-tv> com.ublaze.quranflipboardtv
 ```
 
 ### Option 2: Try it in a browser
@@ -144,7 +144,7 @@ No frameworks and no npm dependencies. You need Node.js and, for packaging, the 
 
 ```bash
 node build.js                 # bundles js/ into dist-src/js/app.bundle.js
-ares-package dist-src -o dist # creates dist/com.ublaze.quranflipboard_<ver>_all.ipk
+ares-package dist-src -o dist # creates dist/com.ublaze.quranflipboardtv_<ver>_all.ipk
 ```
 
 `build.js` concatenates the ES modules into one script for older webOS browsers. **The build fails** if the source contains `?.` or `??`: webOS 5 runs Chromium 68, which can't parse them. (An automatic rewrite of `?.` is what froze v0.1.0. See the [CHANGELOG](CHANGELOG.md).)

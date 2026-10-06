@@ -6,6 +6,9 @@ All notable changes to this project are documented here. The format follows [Kee
 
 LG Content Store submission readiness.
 
+### Changed
+- App ID is now `com.ublaze.quranflipboardtv`: LG Seller Lounge reported `com.ublaze.quranflipboard` as already in use. A Developer Mode install of an earlier version shows up as a separate app; remove it once.
+
 ### Fixed
 - Splash background was almost entirely black; LG requires a non-black splash. New 1920x1080 emerald splash with the split-flap logo.
 - App tile colour (`iconColor`) now matches the icon background (`#0D0D0D`), as LG QA checks.

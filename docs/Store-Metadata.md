@@ -14,8 +14,8 @@ registration screen shows them. Click **SAVE** after each menu (its checkbox tur
 
 | Field | Value |
 |-------|-------|
-| App ID | `com.ublaze.quranflipboard` (taken from the IPK) |
-| IPK | `dist/com.ublaze.quranflipboard_0.2.1_all.ipk` (agree to "configure from IPK") |
+| App ID | `com.ublaze.quranflipboardtv` (taken from the IPK) |
+| IPK | `dist/com.ublaze.quranflipboardtv_0.2.1_all.ipk` (agree to "configure from IPK") |
 | File Type | Web (auto) |
 | Chipset | Web → **All** |
 | Service Platform / SDK | All webOS platforms offered (app targets webOS 5+ / Chromium 68 and up) |

@@ -3,7 +3,7 @@
  * luna service calls go straight through PalmServiceBridge (which webOSTV.js wraps).
  * Everything here is a no-op in a desktop browser.
  */
-const APP_ID = 'com.ublaze.quranflipboard';
+const APP_ID = 'com.ublaze.quranflipboardtv';
 const TVPOWER = 'luna://com.webos.service.tvpower/power/';
 
 // Keep subscription bridges referenced, or they are garbage-collected and go silent

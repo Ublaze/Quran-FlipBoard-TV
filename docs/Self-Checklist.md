@@ -2,7 +2,7 @@
 
 ## App Information
 - **App Name:** Quran FlipBoard
-- **App ID:** com.ublaze.quranflipboard
+- **App ID:** com.ublaze.quranflipboardtv
 - **Version:** 0.2.0
 - **Tester:** [Your Name]
 - **Date:** [Test Date]

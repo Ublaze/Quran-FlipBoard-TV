@@ -9,8 +9,8 @@ A few things are controlled by the TV, not the app. This page covers them.
 ```bash
 node build.js
 ares-package dist-src -o dist
-ares-install --device <your-tv> dist/com.ublaze.quranflipboard_0.2.1_all.ipk
-ares-launch --device <your-tv> com.ublaze.quranflipboard
+ares-install --device <your-tv> dist/com.ublaze.quranflipboardtv_0.2.1_all.ipk
+ares-launch --device <your-tv> com.ublaze.quranflipboardtv
 ```
 
 Developer Mode installs expire after the Dev Mode session lapses (50 h, extendable in the

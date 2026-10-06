@@ -2,7 +2,7 @@
 
 ## App Overview
 **App Name:** Quran FlipBoard
-**App ID:** com.ublaze.quranflipboard
+**App ID:** com.ublaze.quranflipboardtv
 **Version:** 0.2.0
 **Category:** Life / Education
 **Description:** A beautiful split-flap (flip-board) display that cycles through Quran verses with authentic mechanical animation. Displays Arabic text in elegant calligraphy alongside English translation on a retro airport departure board. Designed as an ambient display / digital screensaver for LG TVs.
