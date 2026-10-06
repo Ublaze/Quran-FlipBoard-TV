@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] - 2026-10-06
+
+LG Content Store submission readiness.
+
+### Fixed
+- Splash background was almost entirely black; LG requires a non-black splash. New 1920x1080 emerald splash with the split-flap logo.
+- App tile colour (`iconColor`) now matches the icon background (`#0D0D0D`), as LG QA checks.
+- All on-screen text and controls now sit inside a 5% TV safe area (96 px / 54 px at 1080p).
+- Privacy policy: correctly states that display preferences and the current verse are stored on the TV; removed an inaccurate "public domain" claim about the translation; contact is now GitHub Issues.
+
+### Added
+- `docs/Store-Metadata.md`: field-by-field values for every Seller Lounge registration menu.
+- Store screenshots (`docs/store/`) and a navigation flow chart for the UX scenario.
+- `tests/soak.mjs` (long unattended run: stall, memory and DOM checks) and `tests/screenshots.mjs`.
+
 ## [0.2.0] - 2026-10-05
 
 ### Fixed

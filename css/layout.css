@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: 40px 60px;
+  padding: 54px 96px; /* 5% TV safe area at 1080p */
 }
 
 #arabic-section {
@@ -54,7 +54,7 @@
 
 #nav-hint {
   position: fixed;
-  bottom: 48px;
+  bottom: 64px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 22px;

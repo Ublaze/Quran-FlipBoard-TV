@@ -26,7 +26,7 @@ body.pointer-active * {
 #control-bar {
   position: fixed;
   left: 50%;
-  bottom: 48px;
+  bottom: 64px;
   transform: translate(-50%, 24px);
   display: flex;
   padding: 14px 10px;
@@ -82,8 +82,8 @@ body.pointer-active * {
 /* Paused badge */
 #pause-badge {
   position: fixed;
-  top: 40px;
-  right: 56px;
+  top: 60px;
+  right: 100px;
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 20px;

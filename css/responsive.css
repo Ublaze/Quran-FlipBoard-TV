@@ -14,7 +14,7 @@
 
 /* Full HD (1920x1080) — default */
 @media (min-width: 1200px) and (max-width: 2499px) {
-  #app { padding: 40px 60px; }
+  #app { padding: 54px 96px; }
   #arabic-verse { font-size: calc(48px * var(--arabic-scale, 1)); }
 }
 

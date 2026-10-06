@@ -82,7 +82,7 @@ It starts playing as soon as it opens. There's nothing to set up, no account, an
 3. Install and launch it:
 
 ```bash
-ares-install --device <your-tv> com.ublaze.quranflipboard_0.2.0_all.ipk
+ares-install --device <your-tv> com.ublaze.quranflipboard_0.2.1_all.ipk
 ares-launch  --device <your-tv> com.ublaze.quranflipboard
 ```
 
