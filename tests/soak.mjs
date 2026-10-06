@@ -14,7 +14,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const chrome = spawn(CHROME, [
   '--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`,
-  '--window-size=1920,1080', '--autoplay-policy=no-user-gesture-required', 'about:blank',
+  '--window-size=' + (process.env.W || 1920) + ',' + (process.env.H || 1080), '--autoplay-policy=no-user-gesture-required', 'about:blank',
 ], { stdio: 'ignore' });
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -72,7 +72,8 @@ try {
     if (d.method === 'Runtime.exceptionThrown') consoleMsgs.push('EXCEPTION: ' + d.params.exceptionDetails.exception.description);
   });
   await send('Runtime.enable'); await send('Page.enable');
-  await send('Emulation.setDeviceMetricsOverride', { width: 1920, height: 1080, deviceScaleFactor: 1, mobile: false });
+  const W = +(process.env.W || 1920), H = +(process.env.H || 1080);
+  await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false });
 
   // Soak: fresh install, 10 s pace, sample once a minute for SOAK_MIN minutes
   const SOAK_MIN = +(process.env.SOAK_MIN || 30);

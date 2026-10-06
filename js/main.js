@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /** One gentle hint on launch so people know OK opens the controls. */
 function showStartHint() {
   const hint = document.getElementById('nav-hint');
-  setTimeout(() => hint.classList.add('visible'), 2500);
+  const menuOpen = () => document.getElementById('control-bar').classList.contains('visible')
+    || document.getElementById('settings-overlay').classList.contains('open');
+  setTimeout(() => { if (!menuOpen()) hint.classList.add('visible'); }, 2500);
   setTimeout(() => hint.classList.remove('visible'), 9500);
 }

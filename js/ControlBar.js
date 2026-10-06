@@ -61,6 +61,9 @@ export class ControlBar {
     if (typeof focusIndex === 'number') this.focusIndex = focusIndex;
     this.isOpen = true;
     this.el.classList.add('visible');
+    // The launch hint sits in the same spot; once the bar is open the hint has done its job
+    const hint = document.getElementById('nav-hint');
+    if (hint) hint.classList.remove('visible');
     this._render();
     this._bump();
   }

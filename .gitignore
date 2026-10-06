@@ -10,3 +10,4 @@ test-output/
 # LG QA templates (LG documents, not redistributable)
 docs/lg-templates/
 docs/store/chrome-profile/
+dist-src-720/
